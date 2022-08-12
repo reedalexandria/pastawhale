@@ -1,0 +1,25 @@
+---
+title: "practice"
+author: "Alex Reed"
+date: "2022-08-12"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(palmerpenguins)
+library(tidyverse)
+
+```
+
+```{r}
+penguins_year_chr <- penguins |>
+  mutate(year = as.character(year))
+
+penguins_year_num <- penguins_year_chr |>
+  mutate(year = as.numeric(year))
+
+penguins_ad_ch <- penguins_year_num |>
+  filter(species %in% c("Adelie", "Chinstrap"))
+```
+
